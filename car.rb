@@ -46,20 +46,6 @@ class Car
 		
 end
 
-truck = Hash.new
-truck[:make] = 'Ford'
-truck[:model] = 'Ranger'
-truck[:year] = 1996
-
-sedan = {
-	make: 'Hyundai',
-	model: "Elantra",
-	year: "2011"
-}
-
-def vehicle_name(hsh)
-	"Your car is a #{hsh[:year]} #{hsh[:make]} #{hsh[:model]}"
-end
 
 van = Car.new("Dodge", "Grand Caravan", 2013, 68000, 66000)
 civic = Car.new("Honda", "Civic", 2013, 40200, 40000)
