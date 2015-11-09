@@ -1,7 +1,5 @@
 class Car
 
-	MILES_PER_OIL_CHANGE = 4000
-
 	def initialize(make, model, year, miles, last_oil_change)
 		@make = make
 		@model = model
@@ -9,6 +7,10 @@ class Car
 		@miles = miles
 		@last_oil_change = last_oil_change
 
+	end
+
+	def self.miles_per_oil_change
+		4000
 	end
 
 	def name()
@@ -24,9 +26,7 @@ class Car
 	end
 
 	def oil_change_status()
-		#put message #1 else puts message #2
-		#condition = current mileage
-		miles_till = MILES_PER_OIL_CHANGE - (@miles - @last_oil_change) 
+		miles_till = self.class.miles_per_oil_change - (@miles - @last_oil_change) 
 		miles_since = @miles - @last_oil_change
 
 		if oil_needs_changing?
@@ -34,11 +34,10 @@ class Car
 		else 
 			"It has been #{miles_since} miles since my last oil change. I have another #{miles_till} miles before the next oil change!"
 		end
-
 	end
 
 	def oil_needs_changing?
-		@miles > @last_oil_change + MILES_PER_OIL_CHANGE
+		@miles > @last_oil_change + self.class.miles_per_oil_change
 		
 	end		
 end
